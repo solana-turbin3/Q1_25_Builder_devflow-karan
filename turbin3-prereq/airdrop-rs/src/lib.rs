@@ -174,7 +174,6 @@ mod tests {
             "Success! Check out your TX here:https://explorer.solana.com/tx/{}/?cluster=devnet",
             signature
         );
-
-        //Success! Check out your TX here:https://explorer.solana.com/tx/65PB95Qkauowc4c3MULn2mCeSvGsCSHVwLyYC5dMQCfE1WVKcFBQsHnPHohmwKqo7uAUJx3rKNu63CREpaNb7Fh9/?cluster=devnet
+        //Success! Check out your TX here:https://explorer.solana.com/tx/2Aoe5AYA742e7PMrgt5kUkNV24p6SfYswWh8YZW9m8zg2yGj2TqXDJjboGnuTcTmHwRSRtEabnMyjHovDSGF8KgL/?cluster=devnet
     }
 }
