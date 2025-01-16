@@ -12,7 +12,7 @@ const connection = new Connection("https://api.devnet.solana.com", commitment);
 (async () => {
     try {
         // Start here
-        console.log(wallet)
+        
         const mint = await createMint(connection, keypair, keypair.publicKey, keypair.publicKey, 6);
         console.log(`Mint Address: ${mint.toBase58()}`)
         //7RGbqEbcemzYE5exnxwh3HkNDjkQnqt1yKUCFHJ4YvAY
