@@ -13,16 +13,26 @@ const connection = new Connection("https://api.devnet.solana.com", commitment);
 const mint = new PublicKey("7RGbqEbcemzYE5exnxwh3HkNDjkQnqt1yKUCFHJ4YvAY");
 
 // Recipient address
-const to = new PublicKey("<receiver address>");
+const to = new PublicKey("BKYX34S6RJP4YjuLfcDRr2aBboCNL43ku4k4FuY9nTU1");
 
 (async () => {
     try {
         // Get the token account of the fromWallet address, and if it does not exist, create it
+        const fromWallet = await getOrCreateAssociatedTokenAccount(connection, keypair, mint, keypair.publicKey);
+        console.log(`My Wallet is ${fromWallet.address}`)
+        //My Wallet is 8aD3AQQwSFciCbkmakXjp8bUQWf1tjrTuMgfu97YHTbM
 
         // Get the token account of the toWallet address, and if it does not exist, create it
+        const toWallet = await getOrCreateAssociatedTokenAccount(connection, keypair, mint, to);
+        console.log(`recipient Wallet is ${toWallet.address}`)
+        // recipient Wallet is FMRjpYj8nbHCqmXT55pAAtntgDvJ426PngotbHYUH3w4
 
         // Transfer the new token to the "toTokenAccount" we just created
-    } catch(e) {
+        const tx = await transfer(connection, keypair, fromWallet.address, toWallet.address, keypair, 10_000_000);
+        console.log(`Transfer id is ${tx}`);
+        // Transfer id is 3v7JhXnaxy9jJ3834x2HVqCWG8Ksm71uVS78rYTkMo21c9bb1MQiUHzkRQphFzchptXXmgEAT2nyvkBUiEJDKuHZ
+
+    } catch (e) {
         console.error(`Oops, something went wrong: ${e}`)
     }
 })();
