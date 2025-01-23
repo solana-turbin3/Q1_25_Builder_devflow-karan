@@ -144,7 +144,6 @@ impl<'info> Payment<'info> {
         Ok(())
     }
 }
-
 #[derive(Accounts)]
 pub struct Close<'info> {
     #[account(mut)]
